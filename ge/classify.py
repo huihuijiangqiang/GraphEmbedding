@@ -2,7 +2,7 @@ from __future__ import print_function
 
 
 import numpy
-from sklearn.metrics import f1_score, accuracy_score
+from sklearn.metrics import f1_score, accuracy_score,precision_score,classification_report,recall_score
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import MultiLabelBinarizer
 
@@ -43,6 +43,21 @@ class Classifier(object):
             results[average] = f1_score(Y, Y_, average=average)
         results['acc'] = accuracy_score(Y,Y_)
         print('-------------------')
+        print('准确率：',accuracy_score(Y,Y_))
+        print('宏平均精确率:', precision_score(Y,Y_, average='macro'))  # 预测宏平均精确率输出
+        print('微平均精确率:', precision_score(Y,Y_, average='micro'))  # 预测微平均精确率输出
+        print('加权平均精确率:', precision_score(Y,Y_, average='weighted'))  # 预测加权平均精确率输出
+        print('宏平均召回率:', recall_score(Y,Y_, average='macro'))  # 预测宏平均召回率输出
+        print('微平均召回率:', recall_score(Y,Y_, average='micro'))  # 预测微平均召回率输出
+        print('加权平均召回率:', recall_score(Y,Y_, average='micro'))  # 预测加权平均召回率输出
+
+        print('宏平均F1-score:',
+              f1_score(Y,Y_, labels=[0,1], average='macro'))  # 预测宏平均f1-score输出
+        print('微平均F1-score:',
+              f1_score(Y,Y_, labels=[0,1], average='micro'))  # 预测微平均f1-score输出
+        print('加权平均F1-score:',
+              f1_score(Y,Y_, labels=[0,1], average='weighted'))  # 预测加权平均f1-score输
+        print('分类报告\n',classification_report(Y,Y_))
         print(results)
         return results
         print('-------------------')
