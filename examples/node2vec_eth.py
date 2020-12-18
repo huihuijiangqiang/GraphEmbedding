@@ -12,7 +12,7 @@ from sklearn.manifold import TSNE
 
 def evaluate_embeddings(embeddings):
     X, Y = read_node_label('../data/ETH/Phishing node classification/ddddd.txt')
-    tr_frac = 0.5
+    tr_frac = 0.8
     print("Training classifier using {:.2f}% nodes...".format(
         tr_frac * 100))
     clf = Classifier(embeddings=embeddings, clf=LogisticRegression())
