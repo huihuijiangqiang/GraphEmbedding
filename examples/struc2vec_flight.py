@@ -20,7 +20,7 @@ from sklearn.manifold import TSNE
 
 def evaluate_embeddings(embeddings):
 
-    X, Y = read_node_label('../data/ETH/Phishing node classification/ddddd.txt',skip_head=True)
+    X, Y = read_node_label('../data/ETH/Phishing node classification/label.txt',skip_head=True)
 
     tr_frac = 0.8
 
@@ -38,7 +38,7 @@ def evaluate_embeddings(embeddings):
 
 def plot_embeddings(embeddings,):
 
-    X, Y = read_node_label('../data/ETH/Phishing node classification/ddddd.txt',skip_head=True)
+    X, Y = read_node_label('../data/ETH/Phishing node classification/label.txt',skip_head=True)
 
 
 
@@ -77,11 +77,11 @@ def plot_embeddings(embeddings,):
     plt.show()
 
 if __name__ == "__main__":
-    G = nx.read_edgelist('test.edge_list.txt', create_using=nx.DiGraph(), nodetype=None,
-                         data=[('weight', int)])
-    # G = nx.read_edgelist('../data/ETH/Phishing node classification/TransEdgelist.txt',
-    #                      create_using=nx.MultiDiGraph(), delimiter=',', nodetype=None,
-    #                      data=[('amount', float), ('weight', int)])
+    # G = nx.read_edgelist('test.edge_list.txt', create_using=nx.DiGraph(), nodetype=None,
+    #                      data=[('weight', int)])
+    G = nx.read_edgelist('../data/ETH/Phishing node classification/TransEdgelist.txt',
+                         create_using=nx.MultiDiGraph(), delimiter=',', nodetype=None,
+                         data=[('amount', float), ('weight', int)])
 
 
 
