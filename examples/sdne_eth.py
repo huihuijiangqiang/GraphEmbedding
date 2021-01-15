@@ -48,7 +48,7 @@ if __name__ == "__main__":
     G = nx.read_edgelist('../data/ETH/Phishing node classification/TransEdgelist.txt',
                          create_using=nx.MultiDiGraph(), delimiter=',', nodetype=None,
                          data=[('amount', float), ('weight', int)])
-    model = SDNE(G, hidden_size=[256, 128],)
+    model = SDNE(G, hidden_size=[256, 128])
     model.train(batch_size=3000, epochs=40, verbose=2)
     embeddings = model.get_embeddings()
 

@@ -47,7 +47,7 @@ if __name__ == "__main__":
                          create_using=nx.DiGraph(), nodetype=None, data=[('weight', int)])
 
     model = SDNE(G, hidden_size=[256, 128],)
-    model.train(batch_size=3000, epochs=40, verbose=2)
+    model.train(batch_size=1024, epochs=40, verbose=2)
     embeddings = model.get_embeddings()
 
     evaluate_embeddings(embeddings)

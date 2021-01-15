@@ -11,7 +11,7 @@ from sklearn.manifold import TSNE
 
 
 def evaluate_embeddings(embeddings):
-    X, Y = read_node_label('../data/ETH/Phishing node classification/ddddd.txt')
+    X, Y = read_node_label('../data/ETH/Phishing node classification/label.txt')
     tr_frac = 0.8
     print("Training classifier using {:.2f}% nodes...".format(
         tr_frac * 100))
@@ -20,7 +20,7 @@ def evaluate_embeddings(embeddings):
 
 
 def plot_embeddings(embeddings,):
-    X, Y = read_node_label('../data/ETH/Phishing node classification/ddddd.txt')
+    X, Y = read_node_label('../data/ETH/Phishing node classification/label.txt')
 
     emb_list = []
     for k in X:
